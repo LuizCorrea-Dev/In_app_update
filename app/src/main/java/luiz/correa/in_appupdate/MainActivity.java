@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int ALL_PERMISSIONS_REQUEST = 1000;
 
-
     ProgressDialog progressDialog;
 
     @Override
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtVersion = findViewById(R.id.txt_version);
         txtVersion.setText(R.string.version);
 
-        requestPremission();
+        requestPermission();
 
 
         Button btnUpdate = (Button) findViewById(R.id.btn_update);
@@ -40,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
                 progressDialog.show();
-
-                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/version_2.0.0/app/debug/app-debug.apk?raw=true";
+             
+                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/version_2.0.0/debug/app-debug.apk?raw=true";
+                String url2 = "https://github.com/TripathiViky/AndroidAppDeploymentTest/blob/main/app-debug.apk?raw=true";
 
                 AppUpdater app = new AppUpdater(MainActivity.this);
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Solicitar permissões dinamicamente
      */
-    private void requestPremission() {
+    private void requestPermission() {
 
         if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                 this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
@@ -75,14 +75,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Determinar se há permissão correspondente
-    public static boolean hasPermission(Context context, String... permissions) {
-        for (String permission : permissions) {
-            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.
-                    PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
