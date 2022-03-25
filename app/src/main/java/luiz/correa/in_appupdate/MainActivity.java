@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 progressDialog.show();
 
-                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/main/app-debug-v2.0.apk?raw=true";
+                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/version_2.0.0/app/debug/app-debug.apk?raw=true";
 
                 AppUpdater app = new AppUpdater(MainActivity.this);
 
