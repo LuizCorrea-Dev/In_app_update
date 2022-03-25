@@ -41,11 +41,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 progressDialog.show();
 
-                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/main/app-debug-v2.0.apk?raw=true";
+                String url = "https://github.com/LuizCorrea-Dev/In_app_update/blob/main/app-debug-v3.0.apk?raw=true";
+
 
                 AppUpdater app = new AppUpdater(MainActivity.this);
 
-                app.updateAppWithUrl(url, "Update 2.0");
+                app.updateAppWithUrl(url, "Update 3.0");
 
             }
         });
@@ -75,14 +76,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Determinar se há permissão correspondente
-    public static boolean hasPermission(Context context, String... permissions) {
-        for (String permission : permissions) {
-            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.
-                    PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
-    }
+
 }
